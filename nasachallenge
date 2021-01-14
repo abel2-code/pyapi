@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+
+import requests
+import pprint
+
+def main():
+    roverresp = requests.get("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3&api_key=DEMO_KEY").json()
+
+    cameras= ["FHAZ", "RHAZ", "MAST", "CHEMCAM", "NAVCAM"]
+
+
+    for i in roverresp["photos"]:
+       print(i['img_src'])
+    
+    
+
+if __name__ == "__main__":
+    main()
